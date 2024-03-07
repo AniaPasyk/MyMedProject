@@ -43,6 +43,7 @@ public class TestCase1 extends BaseTest {
         devicesPage.select2021Year();
         devicesPage.selectDec();
         devicesPage.expandCountryFilter();
+        devicesPage.unCheckFR();
 
 
 

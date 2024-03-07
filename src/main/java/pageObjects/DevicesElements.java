@@ -15,6 +15,8 @@ public interface DevicesElements {
     String decemberMonth = "//div[text()=' DEC ']";
     String countryFilter = "//div[@class='mat-form-field-wrapper ng-tns-c83-9']";
     String listOfCountries = "mat-select-0-panel";
+    String FR = "//span[@class='mat-option-text' and text()=' FR ']";
+    String frCheckBox = "//mat-option[@ng-reflect-value='FR']/mat-pseudo-checkbox";
 
 
 }

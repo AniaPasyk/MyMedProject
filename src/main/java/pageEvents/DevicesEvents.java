@@ -58,6 +58,15 @@ public class DevicesEvents {
         assertThat(ele.getWebElement("ID", DevicesElements.listOfCountries).isDisplayed()).isTrue();
     }
 
+    public void unCheckFR() {
+       // System.out.println(ele.getWebElement("XPATH", DevicesElements.frCheckBox).getAttribute("ng-reflect-state"));
+        assertThat(ele.getWebElement("XPATH", DevicesElements.frCheckBox).getAttribute("ng-reflect-state")).isEqualTo("checked");
+        ele.getWebElement("XPATH", DevicesElements.frCheckBox).click();
+        assertThat(ele.getWebElement("XPATH", DevicesElements.frCheckBox).getAttribute("ng-reflect-state")).isEqualTo("unchecked");
+
+
+    }
+
    // " String text = driver.findElement(By.tagName("h1")).getText();
 //    assertEquals(text, "Testing Inputs");
 
