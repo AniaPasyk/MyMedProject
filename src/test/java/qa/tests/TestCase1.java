@@ -44,13 +44,13 @@ public class TestCase1 extends BaseTest {
         devicesPage.selectDec();
         devicesPage.expandCountryFilter();
         devicesPage.unCheckFR();
+        devicesPage.checkES();
+        devicesPage.expandSpecialtyFilter();
 
 
 
 
 
-        //Uncheck FR
-        //Check ES
         //Click on the 'Select Specialty'
         //Uncheck "all"
         //Check "specialty"

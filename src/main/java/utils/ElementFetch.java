@@ -24,6 +24,9 @@ public class ElementFetch {
             case "TAGNAME":
                 return BaseTest.driver.findElement(By.tagName(identifierValue));
 
+            case "LINKTEXT":
+                return BaseTest.driver.findElement(By.linkText(identifierValue));
+
             default:
                 return null;
         }
@@ -45,6 +48,9 @@ public class ElementFetch {
 
             case "TAGNAME":
                 return BaseTest.driver.findElements(By.tagName(identifierValue));
+
+            case "LINKTEXT":
+                return BaseTest.driver.findElements(By.linkText(identifierValue));
 
             default:
                 return null;
