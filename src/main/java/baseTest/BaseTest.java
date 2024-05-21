@@ -1,10 +1,5 @@
 package baseTest;
 
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.ITestResult;
-import org.testng.annotations.*;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
@@ -12,11 +7,14 @@ import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.testng.ITestResult;
+import org.testng.annotations.*;
 import utils.Constants;
 
 import java.io.File;
@@ -78,20 +76,22 @@ public class BaseTest {
 
     public void setupDriver(String browser) {
         if (browser.equalsIgnoreCase("chrome")) {
+
             ChromeOptions options = new ChromeOptions();
+            options.setBinary("C:\\Program Files (x86)\\Testy Automatyczne - ChromeDriver\\chrome-win64\\chrome.exe");
             options.addArguments(
                     "--start-maximized");
-                   // "--incognito");
             driver = new ChromeDriver(options);
+
         } else if (browser.equalsIgnoreCase("edge")) {
             driver = new EdgeDriver();
         } else if (browser.equalsIgnoreCase("firefox")) {
             //WebDriverManager.firefoxdriver().setup();
-            FirefoxOptions options=new FirefoxOptions();
+            FirefoxOptions options = new FirefoxOptions();
             options.addArguments(
                     "--start-maximized",
                     "--incognito");
-            driver=new FirefoxDriver(options);
+            driver = new FirefoxDriver(options);
         }
     }
 }
