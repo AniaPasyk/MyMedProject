@@ -22,6 +22,8 @@ public interface DevicesElements {
     String esCheck = "//mat-option[@ng-reflect-value='ES']/mat-pseudo-checkbox";
     String emptyState = "//div[@class='empty-state-container ng-star-inserted']";
     String overlay = "//div[@class='cdk-overlay-backdrop cdk-overlay-transparent-backdrop cdk-overlay-backdrop-showing']";
+    String allCheck = "//mat-option[@ng-reflect-value='all']/mat-pseudo-checkbox";
+    String specialtyCheck = "//mat-option[@ng-reflect-value='specialty']/mat-pseudo-checkbox";
 
 
 }

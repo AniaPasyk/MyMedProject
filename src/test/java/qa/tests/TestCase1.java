@@ -46,14 +46,15 @@ public class TestCase1 extends BaseTest {
         devicesPage.unCheckFR();
         devicesPage.checkES();
         devicesPage.expandSpecialtyFilter();
+        devicesPage.uncheckAll();
+        devicesPage.checkSpecialty();
 
 
 
 
 
-        //Click on the 'Select Specialty'
-        //Uncheck "all"
-        //Check "specialty"
+
+
         //Click anywhere
         //Click on the 'Search' button
 

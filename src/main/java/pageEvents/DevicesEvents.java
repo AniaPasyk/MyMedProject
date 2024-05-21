@@ -80,9 +80,19 @@ public class DevicesEvents {
 
     }
 
-    public void clickEmptyState(){
-        ele.getWebElement("XPATH", DevicesElements.emptyState).click();
+    public void uncheckAll() {
+        assertThat(ele.getWebElement("XPATH", DevicesElements.allCheck).getAttribute("ng-reflect-state")).isEqualTo("checked");
+        ele.getWebElement("XPATH", DevicesElements.allCheck).click();
+        assertThat(ele.getWebElement("XPATH", DevicesElements.allCheck).getAttribute("ng-reflect-state")).isEqualTo("unchecked");
     }
+
+    public void checkSpecialty() {
+        assertThat(ele.getWebElement("XPATH", DevicesElements.specialtyCheck).getAttribute("ng-reflect-state")).isEqualTo("unchecked");
+        ele.getWebElement("XPATH", DevicesElements.specialtyCheck).click();
+        assertThat(ele.getWebElement("XPATH", DevicesElements.specialtyCheck).getAttribute("ng-reflect-state")).isEqualTo("checked");
+    }
+
+
 
    // " String text = driver.findElement(By.tagName("h1")).getText();
 //    assertEquals(text, "Testing Inputs");
