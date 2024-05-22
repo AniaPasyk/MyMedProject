@@ -92,6 +92,10 @@ public class DevicesEvents {
         assertThat(ele.getWebElement("XPATH", DevicesElements.specialtyCheck).getAttribute("ng-reflect-state")).isEqualTo("checked");
     }
 
+    public void clickOverlay () {
+        ele.getWebElement("XPATH", DevicesElements.overlay).click();
+    }
+
 
 
    // " String text = driver.findElement(By.tagName("h1")).getText();

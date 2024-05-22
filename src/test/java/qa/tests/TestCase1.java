@@ -48,6 +48,9 @@ public class TestCase1 extends BaseTest {
         devicesPage.expandSpecialtyFilter();
         devicesPage.uncheckAll();
         devicesPage.checkSpecialty();
+        devicesPage.clickOverlay();
+        devicesPage.clickOnTheSearchButton();
+        devicesPage.verifyVisibilityOfTheChart();
 
 
 
@@ -55,7 +58,9 @@ public class TestCase1 extends BaseTest {
 
 
 
-        //Click anywhere
+
+
+
         //Click on the 'Search' button
 
     }
