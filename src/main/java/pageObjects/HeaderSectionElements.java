@@ -1,6 +1,6 @@
 package pageObjects;
 
-public interface HeaderElements {
+public interface HeaderSectionElements {
 
     String welcomeToMedscapeImg = "//img[@class='imageLogo']";
     String generalMenu = "//span[text()=' General ']";
