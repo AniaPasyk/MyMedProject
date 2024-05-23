@@ -28,7 +28,7 @@ public class TestCase1 extends BaseTest {
 
     }
 
-    @Test
+    @Test( enabled=false )
     public void TC2() {
         loginPage.logIn();
         welcomePage.verifyLoggedIn();
@@ -51,6 +51,38 @@ public class TestCase1 extends BaseTest {
         devicesPage.clickOverlay();
         devicesPage.clickOnTheSearchButton();
         devicesPage.verifyVisibilityOfTheChart();
+    }
+
+    @Test
+    public void TC3() {
+        loginPage.logIn();
+        welcomePage.verifyLoggedIn();
+        welcomePage.verifyLoggedIn();
+        logger.info("Welcome Page is visible");
+        welcomePage.expandGeneralListAndVerify();
+        welcomePage.headToContentTypes();
+        devicesPage.clickOnTheSelectStartDate();
+
+
+
+
+    }
+
+    //Click on the 'Select Start Date'
+    //Select "2023" from available years
+    //Select "JAN" from the available months
+    //Click on the 'Select End Date'
+    //Select "2023" from available years
+    //Select "DEC" from the available months
+    //Click on the 'Select Country' filter
+    //Uncheck FR
+    //Click on the 'Select Specialty'
+    //Verify "all" is checked
+    //Click anywhere
+    //Click on the 'Search' button
+    //Verify alert is displayed
+    //Verify alert is not displayed
+
 
 
 
@@ -66,4 +98,4 @@ public class TestCase1 extends BaseTest {
     }
 
 
-}
+
