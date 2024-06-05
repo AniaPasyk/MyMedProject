@@ -63,17 +63,17 @@ public class TestCase1 extends BaseTest {
         header.headToContentTypes();
         filters.clickOnTheSelectStartDate();
         filters.select2023();
+        filters.selectJan();
+        filters.selectEndDate();
+        filters.select2023();
+        filters.selectDec();
 
 
 
 
     }
 
-
-    //Select "JAN" from the available months
-    //Click on the 'Select End Date'
-    //Select "2023" from available years
-    //Select "DEC" from the available months
+    
     //Click on the 'Select Country' filter
     //Uncheck FR
     //Click on the 'Select Specialty'
