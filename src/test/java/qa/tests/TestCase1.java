@@ -2,6 +2,7 @@ package qa.tests;
 
 import baseTest.BaseTest;
 import org.testng.annotations.Test;
+import pageEvents.ContentTypesEvents;
 import pageEvents.FilteringEvents;
 import pageEvents.LoginPageEvents;
 import pageEvents.HeaderSectionEvents;
@@ -13,6 +14,7 @@ public class TestCase1 extends BaseTest {
     LoginPageEvents loginPage = new LoginPageEvents();
     HeaderSectionEvents header = new HeaderSectionEvents();
     FilteringEvents filters = new FilteringEvents();
+    ContentTypesEvents contentTypes = new ContentTypesEvents();
 
 
     @Test( enabled=false )
@@ -73,6 +75,8 @@ public class TestCase1 extends BaseTest {
         filters.verifyAllisChecked();
         filters.clickOverlay();
         filters.clickOnTheSearchButton();
+        contentTypes.verifyVisibilityOfAlert();
+
 
 
 

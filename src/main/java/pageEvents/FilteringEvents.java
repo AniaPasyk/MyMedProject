@@ -109,12 +109,7 @@ public class FilteringEvents {
         ele.getWebElement("XPATH", FilterSectionElements.overlay).click();
     }
 
-    public void verifyVisibilityOfAlert(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(120));
-        wait.until(ExpectedConditions.invisibilityOf(ele.getWebElement("XPATH", FilterSectionElements.loadingSpinner)));
 
-
-    }
 
 
     // " String text = driver.findElement(By.tagName("h1")).getText();
