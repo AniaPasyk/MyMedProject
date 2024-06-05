@@ -71,6 +71,14 @@ public class FilteringEvents {
 
     }
 
+    public void verifyFRisChecked() {
+        assertThat(ele.getWebElement("XPATH", FilterSectionElements.frCheck).getAttribute("ng-reflect-state")).isEqualTo("checked");
+    }
+
+    public void verifyAllisChecked() {
+        assertThat(ele.getWebElement("XPATH", FilterSectionElements.allCheck).getAttribute("ng-reflect-state")).isEqualTo("checked");
+    }
+
     public void checkES() {
         assertThat(ele.getWebElement("XPATH", FilterSectionElements.esCheck).getAttribute("ng-reflect-state")).isEqualTo("unchecked");
         System.out.println(ele.getWebElement("XPATH", FilterSectionElements.esCheck).getAttribute("ng-reflect-state"));
@@ -99,6 +107,13 @@ public class FilteringEvents {
 
     public void clickOverlay() {
         ele.getWebElement("XPATH", FilterSectionElements.overlay).click();
+    }
+
+    public void verifyVisibilityOfAlert(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(120));
+        wait.until(ExpectedConditions.invisibilityOf(ele.getWebElement("XPATH", FilterSectionElements.loadingSpinner)));
+
+
     }
 
 

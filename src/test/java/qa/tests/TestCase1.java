@@ -67,19 +67,20 @@ public class TestCase1 extends BaseTest {
         filters.selectEndDate();
         filters.select2023();
         filters.selectDec();
+        filters.expandCountryFilter();
+        filters.verifyFRisChecked();
+        filters.expandSpecialtyFilter();
+        filters.verifyAllisChecked();
+        filters.clickOverlay();
+        filters.clickOnTheSearchButton();
 
 
 
 
     }
 
-    
-    //Click on the 'Select Country' filter
-    //Uncheck FR
-    //Click on the 'Select Specialty'
-    //Verify "all" is checked
-    //Click anywhere
-    //Click on the 'Search' button
+
+
     //Verify alert is displayed
     //Verify alert is not displayed
 
