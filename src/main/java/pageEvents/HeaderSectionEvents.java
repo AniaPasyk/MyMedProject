@@ -1,7 +1,9 @@
 package pageEvents;
 
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pageObjects.FilterSectionElements;
 import pageObjects.HeaderSectionElements;
 import utils.ElementFetch;
 
@@ -12,19 +14,18 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class HeaderSectionEvents {
 
-     ElementFetch ele = new ElementFetch();
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(120));
+    ElementFetch ele = new ElementFetch();
 
 
     public void verifyLoggedIn() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
-        System.out.println("znikł spinner");
+        waitForLoadersToDisappear();
         wait.until(ExpectedConditions.visibilityOf(ele.getWebElement("XPATH", HeaderSectionElements.welcomeToMedscapeImg)));
         assertThat(ele.getWebElement("XPATH", HeaderSectionElements.welcomeToMedscapeImg).isDisplayed()).isTrue();
     }
 
     public void expandGeneralListAndVerify() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
-        //wait.until(ExpectedConditions.elementToBeClickable(ele.getWebElement("XPATH", WelcomePageElements.generalMenu))).click();
+        wait.until(ExpectedConditions.elementToBeClickable(ele.getWebElement("XPATH", HeaderSectionElements.generalMenu)));
         ele.getWebElement("XPATH", HeaderSectionElements.generalMenu).click();
         wait.until(ExpectedConditions.visibilityOf(ele.getWebElement("XPATH", HeaderSectionElements.generalList)));
         assertThat(ele.getWebElement("XPATH", HeaderSectionElements.generalList).isDisplayed()).isTrue();
@@ -38,6 +39,18 @@ public class HeaderSectionEvents {
 
     public void headToContentTypes() {
         ele.getWebElement("XPATH", HeaderSectionElements.contentTypes).click();
+    }
+
+    public boolean waitForLoadersToDisappear() {
+
+        wait.until(driver ->
+                ele.getWebElements("XPATH", FilterSectionElements.loadingSpinner));
+        for (WebElement loaders : ele.getWebElements("XPATH", FilterSectionElements.loadingSpinner)) {
+            if (loaders.isDisplayed()) {
+                return false; // Loader is still visible
+            }
+        }
+        return true; // All loaders are gone
     }
 
 }

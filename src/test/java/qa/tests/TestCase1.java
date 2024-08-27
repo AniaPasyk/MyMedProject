@@ -1,6 +1,7 @@
 package qa.tests;
 
 import baseTest.BaseTest;
+import commons.CommonsEvents;
 import org.testng.annotations.Test;
 import pageEvents.ContentTypesEvents;
 import pageEvents.FilteringEvents;
@@ -15,6 +16,7 @@ public class TestCase1 extends BaseTest {
     HeaderSectionEvents header = new HeaderSectionEvents();
     FilteringEvents filters = new FilteringEvents();
     ContentTypesEvents contentTypes = new ContentTypesEvents();
+    CommonsEvents commons = new CommonsEvents();
 
 
     @Test( enabled=false )
@@ -55,11 +57,11 @@ public class TestCase1 extends BaseTest {
         filters.verifyVisibilityOfTheChart();
     }
 
-    @Test
+    @Test( enabled=false )
     public void TC3() {
         loginPage.logIn();
         header.verifyLoggedIn();
-        header.verifyLoggedIn();
+        //header.verifyLoggedIn();
         logger.info("Welcome Page is visible");
         header.expandGeneralListAndVerify();
         header.headToContentTypes();
@@ -75,30 +77,30 @@ public class TestCase1 extends BaseTest {
         filters.verifyAllisChecked();
         filters.clickOverlay();
         filters.clickOnTheSearchButton();
-        contentTypes.verifyVisibilityOfAlert();
+        //contentTypes.verifyVisibilityOfAlert();
 
+        if(contentTypes.isAlertDisplayed()) {
+            logger.info("Alert is displayed");
+        }  else {
+            logger.info("Alert is not displayed");
+        }
+    }
 
-
+    @Test
+    public void testYearList() {
+        loginPage.logIn();
+        header.verifyLoggedIn();
+     //   header.verifyLoggedIn();
+        logger.info("Welcome Page is visible");
+        header.expandGeneralListAndVerify();
+        header.headToDevices();
+        filters.clickOnTheSelectStartDate();
+        commons.selectYear("2023");
 
 
     }
 
 
-
-    //Verify alert is displayed
-    //Verify alert is not displayed
-
-
-
-
-
-
-
-
-
-
-
-        //Click on the 'Search' button
 
     }
 

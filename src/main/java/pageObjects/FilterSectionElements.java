@@ -1,16 +1,27 @@
 package pageObjects;
 
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
 import java.util.Calendar;
 
 public interface FilterSectionElements {
+
+
 
     String searchButtons = "//span[text()=' Search ']";
     String loadingSpinner = "//*[@class='loading__spinner']";
     String aggregatedChart = "//*[@class='highcharts-background']";
 
     String selectStartDate = "//*[@ng-reflect-label='Start Date']";
+
     //  String dateCalendarView = "//mat-calendar[@id='mat-datepicker-0']/div";
     String selectEndDate = "//*[@ng-reflect-label='End Date']";
+    String yearCalendarList = "//*[@class='mat-calendar-body']";
+    String listOfYears = "//tr[@class='ng-star-inserted']";
+    String givenYear = "//td[@class='mat-calendar-body-cell-container ng-star-inserted']";
+
     String year2021 = "//div[contains(text(),' 2021 ')]";
     String year2022 = "//div[contains(text(),' 2022 ')]";
     String year2023 = "//div[contains(text(),' 2023 ')]";

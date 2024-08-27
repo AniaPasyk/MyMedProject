@@ -14,6 +14,7 @@ import java.time.Duration;
 public class FilteringEvents {
 
     ElementFetch ele = new ElementFetch();
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(120));
 
     public void clickOnTheSearchButton() {
         ele.getWebElement("XPATH", FilterSectionElements.searchButtons).click();
@@ -21,7 +22,6 @@ public class FilteringEvents {
     }
 
     public void verifyVisibilityOfTheChart() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(120));
         wait.until(ExpectedConditions.invisibilityOf(ele.getWebElement("XPATH", FilterSectionElements.loadingSpinner)));
         assertThat(ele.getWebElement("XPATH", FilterSectionElements.aggregatedChart).isDisplayed()).isTrue();
 

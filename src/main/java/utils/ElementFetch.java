@@ -57,4 +57,23 @@ public class ElementFetch {
         }
 
     }
+
+    public boolean isElementPresent(String identifierType, String identifierValue) {
+        List<WebElement> elementList = getWebElements(identifierType, identifierValue);
+
+        int size = elementList.size();
+        if (size > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
+
+//    public void WebElement waitForElement(By locator, int timeout) {
+//
+//    }
+
+//    public void clickWhenReady(By locator, int timeout)
+//}

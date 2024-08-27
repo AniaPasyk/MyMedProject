@@ -2,10 +2,8 @@ package pageEvents;
 
 //import org.asynchttpclient.util.Assertions;
 import pageObjects.LoginPageElements;
-import pageObjects.WelcomePageElements;
 import utils.ElementFetch;
 import utils.TestArguments;
-import static org.assertj.core.api.Assertions.*;
 
 
 public class LoginPageEvents {
