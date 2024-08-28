@@ -1,15 +1,27 @@
 package commons;
 
+import baseTest.BaseTest;
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pageObjects.FilterSectionElements;
 import utils.ElementFetch;
 
 import java.util.List;
 
-public class CommonsEvents {
+public class CommonsEvents extends BaseTest {
 
-    ElementFetch ele = new ElementFetch();
+    //tu będe tworzyć uniwersalne metody na wybieranie dat, specialties i różnych itemów z filtrów
+
+    ElementFetch ele = new ElementFetch(driver, sparkReporter, extent, logger);
+
+    public CommonsEvents(WebDriver driver, ExtentSparkReporter sparkReporter, ExtentReports extent, ExtentTest logger) {
+        super(driver, sparkReporter, extent, logger);
+
+    }
 
     public void selectYear(String year) {
 
@@ -23,6 +35,8 @@ public class CommonsEvents {
             }
 
         }
+
+
 //
 //
 //

@@ -13,6 +13,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 import utils.Constants;
@@ -24,10 +26,19 @@ import java.time.Duration;
 
 public class BaseTest {
 
-    public static WebDriver driver;
+    public WebDriver driver;
     public ExtentSparkReporter sparkReporter;
     public ExtentReports extent;
     public ExtentTest logger;
+
+    public BaseTest(WebDriver driver, ExtentSparkReporter sparkReporter, ExtentReports extent, ExtentTest logger) {
+        this.driver = driver;
+        this.logger = logger;
+        this.extent = extent;
+        this.sparkReporter = sparkReporter;
+        PageFactory.initElements(driver, this);
+    }
+
 
     @BeforeTest
     public void beforeTestMethod() {
