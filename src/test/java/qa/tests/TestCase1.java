@@ -6,6 +6,8 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import commons.CommonsEvents;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pageEvents.ContentTypesEvents;
 import pageEvents.DevicesEvents;
@@ -17,13 +19,24 @@ import utils.ElementFetch;
 
 public class TestCase1 extends BaseTest  {
 
-    ElementFetch ele = new ElementFetch(driver, sparkReporter,extent, logger);
-    LoginPageEvents loginPage = new LoginPageEvents(driver, sparkReporter,extent, logger);
-    WelcomePageEvents header = new WelcomePageEvents(driver, sparkReporter,extent, logger);
-    DevicesEvents filters = new DevicesEvents(driver, sparkReporter,extent, logger);
-    ContentTypesEvents contentTypes = new ContentTypesEvents(driver, sparkReporter,extent, logger);
-    CommonsEvents commons = new CommonsEvents(driver, sparkReporter,extent, logger);
+    ElementFetch ele;
+    LoginPageEvents loginPage;
+    WelcomePageEvents header;
+    DevicesEvents filters;
+    ContentTypesEvents contentTypes;
+    CommonsEvents commons;
 
+    @BeforeMethod
+    public void beforeClass() {
+        ele = new ElementFetch(driver, sparkReporter,extent, logger);
+        loginPage  = new LoginPageEvents(driver, sparkReporter,extent, logger);
+        header = new WelcomePageEvents(driver, sparkReporter,extent, logger);
+        filters = new DevicesEvents(driver, sparkReporter,extent, logger);
+        contentTypes  = new ContentTypesEvents(driver, sparkReporter,extent, logger);
+        commons  = new CommonsEvents(driver, sparkReporter,extent, logger);
+
+
+    }
     public TestCase1(WebDriver driver, ExtentSparkReporter sparkReporter, ExtentReports extent, ExtentTest logger) {
         super(driver, sparkReporter, extent, logger);
     }
