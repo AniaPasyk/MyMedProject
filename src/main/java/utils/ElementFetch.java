@@ -1,31 +1,41 @@
 package utils;
 
 import baseTest.BaseTest;
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 
+import javax.swing.text.Element;
 import java.util.List;
 
-public class ElementFetch {
+public class ElementFetch extends BaseTest {
+
+    public ElementFetch(WebDriver driver, ExtentSparkReporter sparkReporter, ExtentReports extent, ExtentTest logger) {
+        super(driver, sparkReporter, extent, logger);
+
+    }
 
     public WebElement getWebElement(String identifierType, String identifierValue) {
         switch (identifierType) {
-            case "XPATH":
-                return BaseTest.driver.findElement(By.xpath(identifierValue));
+
             case "CSS":
-                return BaseTest.driver.findElement(By.cssSelector(identifierValue));
+                return driver.findElement(By.cssSelector(identifierValue));
 
             case "ID":
-                return BaseTest.driver.findElement(By.id(identifierValue));
+                return driver.findElement(By.id(identifierValue));
 
             case "NAME":
-                return BaseTest.driver.findElement(By.name(identifierValue));
+                return driver.findElement(By.name(identifierValue));
 
             case "TAGNAME":
-                return BaseTest.driver.findElement(By.tagName(identifierValue));
+                return driver.findElement(By.tagName(identifierValue));
 
             case "LINKTEXT":
-                return BaseTest.driver.findElement(By.linkText(identifierValue));
+                return driver.findElement(By.linkText(identifierValue));
 
             default:
                 return null;
@@ -36,21 +46,21 @@ public class ElementFetch {
     public List<WebElement> getWebElements(String identifierType, String identifierValue) {
         switch (identifierType) {
             case "XPATH":
-                return BaseTest.driver.findElements(By.xpath(identifierValue));
+                return driver.findElements(By.xpath(identifierValue));
             case "CSS":
-                return BaseTest.driver.findElements(By.cssSelector(identifierValue));
+                return driver.findElements(By.cssSelector(identifierValue));
 
             case "ID":
-                return BaseTest.driver.findElements(By.id(identifierValue));
+                return driver.findElements(By.id(identifierValue));
 
             case "NAME":
-                return BaseTest.driver.findElements(By.name(identifierValue));
+                return driver.findElements(By.name(identifierValue));
 
             case "TAGNAME":
-                return BaseTest.driver.findElements(By.tagName(identifierValue));
+                return driver.findElements(By.tagName(identifierValue));
 
             case "LINKTEXT":
-                return BaseTest.driver.findElements(By.linkText(identifierValue));
+                return driver.findElements(By.linkText(identifierValue));
 
             default:
                 return null;
